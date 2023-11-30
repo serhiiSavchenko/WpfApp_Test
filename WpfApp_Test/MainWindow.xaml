@@ -1,7 +1,7 @@
 ﻿<Window x:Class="WpfApp_Test.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit" 
         Title="E-MAIL &amp; SMS GATE" Height="650" Width="1039">
 
     <Grid Margin="10">
@@ -25,17 +25,31 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
-                    <ComboBox Width="200" Margin="0,0,10,0"/>
+                    <ComboBox
+                        Name="RuleItems"
+                        ItemsSource="{Binding Rule.RuleItems}"
+                        SelectedValue="{Binding Rule.RuleItem, ValidatesOnDataErrors=True}"
+                        Width="200" 
+                        Margin="0,0,10,0"/>
                     <TextBlock Text="ID" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <TextBox x:Name="ID_txt" Width="50" IsReadOnly="True" Background="WhiteSmoke"/>
+                    <TextBox x:Name="ID"
+                             Text="{Binding Rule.ID, ValidatesOnDataErrors=True}"
+                             Width="50" 
+                             IsReadOnly="True" 
+                             Background="WhiteSmoke"/>
                 </StackPanel>
-                
+
                 <StackPanel Orientation="Horizontal" 
                             Grid.Column="0" 
                             Grid.Row="1"
                             Margin="0,20,0,0">
                     <TextBlock Text="Název pravidla" Margin="0,0,10,0"/>
-                    <TextBox x:Name="NazevPravidla" IsReadOnly="True" Background="WhiteSmoke" FontSize="14" Width="190"/>
+                    <TextBox x:Name="RuleName"
+                             Text="{Binding Rule.RuleName, ValidatesOnDataErrors=True}"
+                             IsReadOnly="True" 
+                             Background="WhiteSmoke" 
+                             FontSize="14" 
+                             Width="190"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="0">
@@ -51,7 +65,12 @@
                             Grid.Row="1"
                             Margin="0,20,0,0">
                     <TextBlock Text="Poznámka" Margin="0,0,10,0"/>
-                    <TextBox x:Name="Poznamka" Width="590" IsReadOnly="True" Background="WhiteSmoke" FontSize="14"/>
+                    <TextBox x:Name="Note"
+                             Text="{Binding Rule.Note, ValidatesOnDataErrors=True}"
+                             Width="590" 
+                             IsReadOnly="True" 
+                             Background="WhiteSmoke" 
+                             FontSize="14"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -59,8 +78,56 @@
 
         <!-- Main Content Section -->
         <TabControl Grid.Row="1" Margin="0,10,0,10">
-            <!--<TabItem Header="QUICK SQL">
-            </TabItem>-->
+            <TabItem Header="Quick SQL">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox x:Name="UseQuickSQL" Content="" HorizontalAlignment="Left" Margin="409,10,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,9,0,0" TextWrapping="Wrap" Text="Použít Quick SQL Pravidlo" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="128,30,0,0" VerticalAlignment="Top" Width="296" Height="16"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Agenda" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="Výběr dokladů" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="Počáteční datum" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="103,83,0,0" TextWrapping="Wrap" Text="(doklady od tohoto data)" VerticalAlignment="Top" Foreground="#FFBBBBBB" FontSize="10"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="345,81,0,0" VerticalAlignment="Top" Height="17" FontSize="8"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,102,0,0" TextWrapping="Wrap" Text="Zatím neodeslané" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="108,104,0,0" TextWrapping="Wrap" Text="(pole pro after je u dokladu prázdně)" VerticalAlignment="Top" Foreground="#FFBBBBBB" FontSize="10"/>
+                    <CheckBox x:Name="UseQuickSQL_Copy" Content="" HorizontalAlignment="Left" Margin="409,102,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,133,0,0" TextWrapping="Wrap" Text="Dnešní doklady" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="97,135,0,0" TextWrapping="Wrap" Text="(vyberte pole pro dnešní datum)" VerticalAlignment="Top" Foreground="#FFBBBBBB" FontSize="10"/>
+                    <CheckBox x:Name="UseQuickSQL_Copy1" Content="" HorizontalAlignment="Left" Margin="409,133,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                    <Grid Width="414" HorizontalAlignment="Center" Margin="0,153,0,196" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Content="" HorizontalAlignment="Left" Margin="91,0,0,0" VerticalAlignment="Center" Checked="RadioButton_Checked_1"/>
+                        <RadioButton Content="" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Checked="RadioButton_Checked_1" Grid.Column="1"/>
+                        <RadioButton Content="" HorizontalAlignment="Left" Margin="124,0,0,0" VerticalAlignment="Center" Checked="RadioButton_Checked_1" Grid.Column="2"/>
+                    </Grid>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" Text="Datum dokladu" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="196,155,0,0" TextWrapping="Wrap" Text="Vytvořeno " VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="360,155,0,0" TextWrapping="Wrap" Text="Uloženo" VerticalAlignment="Top"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="345,203,0,0" VerticalAlignment="Top" Width="79" Height="16"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,203,0,0" TextWrapping="Wrap" Text="Středisko" VerticalAlignment="Top"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="345,224,0,0" VerticalAlignment="Top" Width="79" Height="16"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,224,0,0" TextWrapping="Wrap" Text="Činnost" VerticalAlignment="Top"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="345,245,0,0" VerticalAlignment="Top" Width="79" Height="16"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,245,0,0" TextWrapping="Wrap" Text="Zakázka" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,280,0,0" TextWrapping="Wrap" Text="Iniciály uživatele" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="101,282,0,0" TextWrapping="Wrap" Text="(vice uživatelů možno oddálit &quot;,&quot;)" VerticalAlignment="Top" Foreground="#FFBBBBBB" FontSize="10"/>
+                    <TextBox HorizontalAlignment="Left" Margin="345,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="16"/>
+                </Grid>
+
+            </TabItem>
             <TabItem Header="SQL dotazy">
                 <Grid>
                     <!-- Left Section -->
@@ -78,6 +145,7 @@
                             <avalonEdit:TextEditor
                                 xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"  
                                 Name="MyAvalonEdit"
+                                avalonEdit:BindingGroup="{Binding SQLSettings.Select, ValidatesOnDataErrors=True}"
                                 Height="347"
                                 FontFamily="Consolas"
                                 FontSize="10pt" 
@@ -97,6 +165,7 @@
                             <avalonEdit:TextEditor
                                 xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"  
                                 Name="AfterSelectAvalon"
+                                avalonEdit:BindingGroup="{Binding SQLSettings.AfterSelect, ValidatesOnDataErrors=True}"
                                 Height="100"
                                 FontFamily="Consolas"
                                 FontSize="10pt" 
@@ -106,10 +175,11 @@
                                 HorizontalScrollBarVisibility="Hidden"
                                 VerticalScrollBarVisibility="Hidden" />
                             <!-- Adjust height as needed -->
-                            <TextBlock Margin="0,10,0,5" Text="Soupisla select"/>
+                            <TextBlock Margin="0,10,0,5" Text="Soupiska select"/>
                             <avalonEdit:TextEditor
                                 xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"  
-                                Name="SoupislaSelectAvalon"
+                                Name="SoupiskaSelectAvalon"
+                                avalonEdit:BindingGroup="{Binding SQLSettings.SoupiskaSelect, ValidatesOnDataErrors=True}"
                                 Height="100"
                                 FontFamily="Consolas"
                                 FontSize="10pt" 
@@ -122,10 +192,11 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="PDF"/>
-                            <ComboBox Margin="0,5,0,0"/>
+                            <TextBlock Text="PDF" FontWeight="Bold"/>
                             <TextBlock Margin="0,10,0,5" Text="Agenda"/>
-                            <ComboBox/>
+                            <ComboBox 
+                                ItemsSource="{Binding SQLSettings.soupiskaSelectItems, ValidatesOnDataErrors=True}"
+                                SelectedValue="{Binding SQLSettings.soupiskaSelect, ValidatesOnDataErrors=True}"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
@@ -371,6 +442,8 @@
                         </TabControl>
                     </Grid>
                 </Grid>
+            </TabItem>
+            <TabItem Header="Naplánovat spuštění">
             </TabItem>
             <!-- Add more tabs as required -->
         </TabControl>
