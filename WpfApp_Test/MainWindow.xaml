@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit" 
-        Title="E-MAIL &amp; SMS GATE" Height="650" Width="1039">
+        Title="E-MAIL &amp; SMS GATE" Height="683" Width="1074">
 
     <Grid Margin="10">
         <!-- Header Section -->
@@ -79,7 +79,7 @@
         <!-- Main Content Section -->
         <TabControl Grid.Row="1" Margin="0,10,0,10">
             <TabItem Header="Quick SQL">
-                <Grid>
+                <Grid Margin="1,0,-1,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="4*"/>
                         <RowDefinition/>
@@ -89,6 +89,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+
                     <CheckBox x:Name="UseQuickSQL" Content="" HorizontalAlignment="Left" Margin="409,10,0,0" VerticalAlignment="Top" IsChecked="False"/>
                     <TextBlock HorizontalAlignment="Left" Margin="10,9,0,0" TextWrapping="Wrap" Text="Použít Quick SQL Pravidlo" VerticalAlignment="Top" FontWeight="Bold"/>
                     <ComboBox HorizontalAlignment="Left" Margin="128,30,0,0" VerticalAlignment="Top" Width="296" Height="16"/>
@@ -103,19 +104,27 @@
                     <TextBlock HorizontalAlignment="Left" Margin="10,133,0,0" TextWrapping="Wrap" Text="Dnešní doklady" VerticalAlignment="Top"/>
                     <TextBlock HorizontalAlignment="Left" Margin="97,135,0,0" TextWrapping="Wrap" Text="(vyberte pole pro dnešní datum)" VerticalAlignment="Top" Foreground="#FFBBBBBB" FontSize="10"/>
                     <CheckBox x:Name="UseQuickSQL_Copy1" Content="" HorizontalAlignment="Left" Margin="409,133,0,0" VerticalAlignment="Top" IsChecked="False"/>
-                    <Grid Width="414" HorizontalAlignment="Center" Margin="0,153,0,196" >
+                    <Grid Width="414"
+                          MinWidth="400"
+                          MinHeight="21"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top" Height="20" Margin="10,154,0,0" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <RadioButton Content="" HorizontalAlignment="Left" Margin="91,0,0,0" VerticalAlignment="Center" Checked="RadioButton_Checked_1"/>
-                        <RadioButton Content="" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Checked="RadioButton_Checked_1" Grid.Column="1"/>
-                        <RadioButton Content="" HorizontalAlignment="Left" Margin="124,0,0,0" VerticalAlignment="Center" Checked="RadioButton_Checked_1" Grid.Column="2"/>
+                        <RadioButton Content="" HorizontalAlignment="Left" Margin="90,5,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
+                        <RadioButton Content="" HorizontalAlignment="Left" Margin="109,5,0,2" Checked="RadioButton_Checked_1" Grid.Column="1"/>
+                        <RadioButton Content="" HorizontalAlignment="Left" Margin="125,5,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1" Grid.Column="2"/>
+                        <TextBlock TextWrapping="Wrap" Text="Datum dokladu" Margin="0,3,56,3"/>
+                        <TextBlock Margin="46,3,34,3" TextWrapping="Wrap" Text="Vytvořeno " Grid.Column="1"/>
+                        <TextBlock Margin="75,3,19,3" TextWrapping="Wrap" Text="Uloženo" Grid.Column="2"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="75,151,0,0" TextWrapping="Wrap" Text="Uloženo" VerticalAlignment="Top" Grid.Column="2"/>
                     </Grid>
-                    <TextBlock HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" Text="Datum dokladu" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="196,155,0,0" TextWrapping="Wrap" Text="Vytvořeno " VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="360,155,0,0" TextWrapping="Wrap" Text="Uloženo" VerticalAlignment="Top"/>
                     <ComboBox HorizontalAlignment="Left" Margin="345,203,0,0" VerticalAlignment="Top" Width="79" Height="16"/>
                     <TextBlock HorizontalAlignment="Left" Margin="10,203,0,0" TextWrapping="Wrap" Text="Středisko" VerticalAlignment="Top"/>
                     <ComboBox HorizontalAlignment="Left" Margin="345,224,0,0" VerticalAlignment="Top" Width="79" Height="16"/>
@@ -125,6 +134,81 @@
                     <TextBlock HorizontalAlignment="Left" Margin="10,280,0,0" TextWrapping="Wrap" Text="Iniciály uživatele" VerticalAlignment="Top"/>
                     <TextBlock HorizontalAlignment="Left" Margin="101,282,0,0" TextWrapping="Wrap" Text="(vice uživatelů možno oddálit &quot;,&quot;)" VerticalAlignment="Top" Foreground="#FFBBBBBB" FontSize="10"/>
                     <TextBox HorizontalAlignment="Left" Margin="345,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="16"/>
+                    <Grid Width="415"
+                          MinWidth="400"
+                          MinHeight="15.5"
+                          HorizontalAlignment="Left"
+                          Margin="10,301,0,0" 
+                          VerticalAlignment="Top" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Content="" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Center" Checked="RadioButton_Checked_1"/>
+                        <RadioButton Content="" HorizontalAlignment="Left" Margin="199,0,0,0" VerticalAlignment="Center" Checked="RadioButton_Checked_1" Grid.Column="1"/>
+                        <TextBlock TextWrapping="Wrap" Text="Vytvořil" Margin="0,0,163,0"/>
+                        <TextBlock TextWrapping="Wrap" Text="Editoval" Grid.Column="1" Margin="108,0,57,0"/>
+                    </Grid>
+                    <Grid Width="416"
+                          MinWidth="400"
+                          MinHeight="18"
+                          HorizontalAlignment="Left"
+                          Margin="10,321,0,0"
+                          VerticalAlignment="Top" 
+                          Height="19" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock HorizontalAlignment="Left" Margin="75,151,0,0" TextWrapping="Wrap" Text="Uloženo" VerticalAlignment="Top" Grid.Column="2"/>
+                        <CheckBox Content="" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Vyřízeno" VerticalAlignment="Center"/>
+                        <CheckBox Content="" HorizontalAlignment="Left" Margin="72,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Přeneseno" VerticalAlignment="Center" Grid.Column="1" Margin="6,0,0,0"/>
+                        <CheckBox Content="" HorizontalAlignment="Left" Margin="89,0,0,0" VerticalAlignment="Center" Grid.Column="2"/>
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Trvalý doklad" VerticalAlignment="Center" Grid.Column="2" Margin="15,0,0,0" IsEnabled="False"/>
+                        <CheckBox Content="" HorizontalAlignment="Left" Margin="108,0,0,0" VerticalAlignment="Center" Grid.Column="3"/>
+                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Storno" VerticalAlignment="Center" Grid.Column="3"/>
+                    </Grid>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,340,0,0" TextWrapping="Wrap" Text="(Zatrženo = ano, nezatrženo = ne)" VerticalAlignment="Top" Foreground="#FFBBBBBB" FontSize="10"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Dotaz z program POHODA, nebo WHERE" VerticalAlignment="Top"/>
+                    <TextBox 
+                        Grid.Column="0" 
+                        Margin="10,26,0,10" 
+                        x:Name="SMSTextTextBox_Copy" 
+                        VerticalScrollBarVisibility="Visible" 
+                        TextWrapping="Wrap" 
+                        Grid.Row="1" HorizontalAlignment="Left" Width="409"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,9,0,0" TextWrapping="Wrap" Text="Kontakty" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,38,0,0" TextWrapping="Wrap" Text="Pole pro email" VerticalAlignment="Top" Grid.Column="1"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="201,38,0,0" VerticalAlignment="Top" Width="79" Height="16" Grid.Column="1"/>
+                    <TextBox HorizontalAlignment="Left" Margin="201,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="16" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,62,0,0" TextWrapping="Wrap" Text="Zadejte volitelné pole, nebo konkrétní email" VerticalAlignment="Top" Foreground="#FFBBBBBB" FontSize="9" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,88,0,0" TextWrapping="Wrap" Text="Pole pro GSM" VerticalAlignment="Top" Grid.Column="1"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="201,88,0,0" VerticalAlignment="Top" Width="79" Height="16" Grid.Column="1"/>
+                    <TextBox HorizontalAlignment="Left" Margin="201,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="16" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,112,0,0" TextWrapping="Wrap" Text="Zadejte volitelné pole, nebo konkrétní mobil" VerticalAlignment="Top" Foreground="#FFBBBBBB" FontSize="9" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,141,0,0" TextWrapping="Wrap" Text="Faktury" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,164,0,0" TextWrapping="Wrap" Text="Po splatnosti" VerticalAlignment="Top" Grid.Column="1"/>
+                    <CheckBox x:Name="UseQuickSQL_Copy2" Content="" HorizontalAlignment="Left" Margin="265,166,0,0" VerticalAlignment="Top" IsChecked="False" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,189,0,0" TextWrapping="Wrap" Text="Po tolerované splatnosti" VerticalAlignment="Top" Grid.Column="1"/>
+                    <CheckBox x:Name="UseQuickSQL_Copy3" Content="" HorizontalAlignment="Left" Margin="265,191,0,0" VerticalAlignment="Top" IsChecked="False" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,216,0,0" TextWrapping="Wrap" Text="Tolerance K likvidaci (Kč)" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox HorizontalAlignment="Left" Margin="201,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="16" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,24,0,0" TextWrapping="Wrap" Text="Akce po odeslání" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="111,26,0,0" TextWrapping="Wrap" Text="(after)" VerticalAlignment="Top" Foreground="#FFBBBBBB" FontSize="10" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,45,0,0" TextWrapping="Wrap" Text="Zapsat datum do událostí dokladu" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+                    <CheckBox x:Name="UseQuickSQL_Copy4" Content="" HorizontalAlignment="Left" Margin="265,46,0,0" VerticalAlignment="Top" IsChecked="False" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="Zapsat datum do volitelného pole" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+                    <TextBox HorizontalAlignment="Left" Margin="201,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="16" Grid.Column="1" Grid.Row="1"/>
+                    <Button Grid.Column="2" Content="Spustit pravidlo" HorizontalAlignment="Left" Margin="37,67,0,0" Grid.Row="1" VerticalAlignment="Top" Height="16" FontSize="10" Width="101"/>
+                    <Button Grid.Column="2" Content="Test pravidla" HorizontalAlignment="Left" Margin="169,67,0,0" Grid.Row="1" VerticalAlignment="Top" Height="16" FontSize="10" Width="101"/>
+
                 </Grid>
 
             </TabItem>
@@ -261,7 +345,7 @@
                                 <TextBlock Text="Text SMS" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,10,10,5"/>
 
                                 <!-- 'Text SMS' TextBox with vertical scrollbar -->
-                                <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,10,10,-310" Name="SMSTextTextBox" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap"/>
+                                <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,0,10,-272" Name="SMSTextTextBox" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" Height="262"/>
                             </Grid>
                         </TabItem>
                     </TabControl>
@@ -275,11 +359,19 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Left column for SMTP settings -->
-                    <StackPanel Grid.Column="0" Margin="10">
-                        <CheckBox Name="CustomRuleCheckbox" Content="Vlastní email pro pravidlo" Margin="0,0,0,10" />
+                    <CheckBox Name="CustomRuleCheckbox" 
+                              Content="" 
+                              Margin="0,10,10,438"
+                              MinHeight="15.4"
+                              MinWidth="15.6" HorizontalAlignment="Right" Width="16"/>
+                    <StackPanel Grid.Column="0" Margin="10,30,10,270" MinHeight="190" MinWidth="329.3333333">
+
 
                         <!-- SMTP Settings Panel -->
-                        <StackPanel Name="SmtpSettingsPanel" Margin="0,0,0,10" IsEnabled="{Binding ElementName=CustomRuleCheckbox, Path=IsChecked}">
+                        <StackPanel Name="SmtpSettingsPanel" 
+                                    Margin="0,0,0,10" 
+                                    IsEnabled="{Binding ElementName=CustomRuleCheckbox, Path=IsChecked}"
+                                    MinHeight="185.72">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -316,7 +408,7 @@
                                 <TextBox Grid.Row="5" Grid.Column="1" Name="ReplyTo" Margin="5,2,0,2"/>
 
                                 <!-- Port and SSL Row -->
-                                <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,2,0,2">
+                                <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Width="232" Margin="0,5,0,0">
                                     <Label Content="Port" VerticalAlignment="Center"/>
                                     <TextBox Name="Port" Width="50" VerticalAlignment="Center" Margin="5,0,0,0"/>
                                     <CheckBox Name="UseSSL" Content="SSL" Margin="20,0,0,0" VerticalAlignment="Center"/>
@@ -326,10 +418,7 @@
                         </StackPanel>
 
                         <!-- Document Settings -->
-                        <Label Content="Dokumenty" FontWeight="Bold" Margin="0,10,0,0"/>
                         <Separator Height="10" Visibility="Hidden"/>
-                        <CheckBox Name="SendDocumentCopies" Content="Odeslat dokumenty dokladu" Margin="0,0,0,10"/>
-                        <CheckBox Name="SendDocumentNumberCopies" Content="Odeslat dokumenty evidenčního čísla"/>
                     </StackPanel>
 
                     <!-- Right column for email variants -->
@@ -441,6 +530,20 @@
                             <!-- Add more tabs as needed -->
                         </TabControl>
                     </Grid>
+                    <TextBlock HorizontalAlignment="Left" Margin="14,9,0,0" TextWrapping="Wrap" Text="Vlastni email pro pravidlo" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="SendDocumentNumberCopies"
+                              Content="" 
+                              Margin="0,281,10,167"
+                              MinHeight="15.4"
+                              MinWidth="15.6" HorizontalAlignment="Right" Width="16"/>
+                    <Label Content="Dokumenty" FontWeight="Bold" Margin="10,227,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="25,280,0,0" TextWrapping="Wrap" Text="Odeslat dokumenty evidenčního čísla" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="SendDocumentNumberCopies_Copy"
+                              Content="" 
+                              Margin="0,261,10,187"
+                              MinHeight="15.4"
+                              MinWidth="15.6" HorizontalAlignment="Right" Width="16"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="25,260,0,0" TextWrapping="Wrap" Text="Odeslat dokumenty dokladu" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Naplánovat spuštění">
