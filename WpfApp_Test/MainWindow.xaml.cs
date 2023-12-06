@@ -150,7 +150,7 @@ namespace WpfApp_Test
             Grid.SetColumn(smsTextTextBox, 0);
             Grid.SetColumnSpan(smsTextTextBox, 4);
             grid.Children.Add(smsTextTextBox);
-
+            
             return grid;
         }
 
@@ -176,16 +176,6 @@ namespace WpfApp_Test
         }
 
         private void RemoveVariantButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
 
         }
