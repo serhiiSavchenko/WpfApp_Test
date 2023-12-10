@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace WpfApp_Test
 {
@@ -178,6 +179,12 @@ namespace WpfApp_Test
         private void RemoveVariantButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri){ UseShellExecute = true });
+            e.Handled = true;
         }
     }
 }
