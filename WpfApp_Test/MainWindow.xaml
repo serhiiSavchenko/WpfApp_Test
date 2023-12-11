@@ -571,6 +571,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
+                        <TextBlock HorizontalAlignment="Left" Margin="2,0,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Center" FontWeight="Bold"/>
                         <!-- Buttons above the TabControl -->
                         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Right">
                             <Button Content="Přidat variantu" Width="120" Margin="10,0,10,0" />
@@ -662,7 +663,7 @@
                                 </DataTemplate>
                             </TabControl.ContentTemplate>
                         </TabControl>
-                        <TextBlock HorizontalAlignment="Left" Margin="2,0,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Center" FontWeight="Bold"/>
+                        
                         <!-- Sestavy Section -->
                         <Grid Grid.Row="6" Grid.ColumnSpan="4" Margin="0,0,0,25" VerticalAlignment="Bottom">
                             <Grid.RowDefinitions>
